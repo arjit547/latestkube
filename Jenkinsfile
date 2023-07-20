@@ -23,8 +23,8 @@ pipeline {
                     withCredentials([file(credentialsId: "${KUBECONFIG_ID}", variable: 'KUBECONFIG')]) {
                         sh "kubectl delete deployment.apps/deployment-2048 -n game-2048"
                         sh "kubectl delete service/service-2048 -n game-2048"
-                        sh "kubectl delete ingress/ingress-2048 -n game-2048"
-                        sh "kubectl apply -f 2048_full.yaml"
+                        sh "kubectl apply -f Gameapp.yaml"
+                        sh "kubectl apply -f Ingress.yaml"
                     }
                 }
             }
